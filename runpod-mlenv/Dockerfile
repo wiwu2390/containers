@@ -17,7 +17,7 @@ USER wwu
 WORKDIR /home/wwu
 
 RUN pip install --upgrade pip \
-    && pip install transformers datasets beir wandb lightning
+    && pip install transformers datasets beir wandb lightning jupyterlab-vim
 RUN git clone https://github.com/wiwu2390/dots_public.git $HOME/dots
 RUN ln -s $HOME/dots/.vimrc $HOME/.vimrc
 RUN curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -

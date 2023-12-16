@@ -18,6 +18,8 @@ WORKDIR /home/wwu
 
 RUN pip install --upgrade pip \
     && pip install transformers datasets beir wandb lightning jupyterlab-vim
+# don't use cache if repo has updated
+ADD "https://api.github.com/repos/wiwu2390/dots_public/commits?per_page=1" latest_commit
 RUN git clone https://github.com/wiwu2390/dots_public.git $HOME/dots
 RUN ln -s $HOME/dots/.vimrc $HOME/.vimrc
 RUN curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -
